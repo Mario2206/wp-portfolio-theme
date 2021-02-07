@@ -32,13 +32,14 @@ get_header();
 				</h2>
 				<div>
 					<ul>
-						<li>HTML</li>
-						<li>CSS</li>
-						<li>JS</li>
-						<li>ReactJs</li>
-						<li>NestJs</li>
-						<li>Symfony</li>
-						<li>SASS</li>
+                        <?php
+                            $skills = get_option('p_author_skills');
+                            $skills = $skills ? json_decode($skills) : [];
+                            foreach ($skills as $skill) {
+                                echo "<li>" . $skill . "</li>";
+                            }
+                        ?>
+
 					</ul>
 				</div>
 
