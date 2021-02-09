@@ -1,2 +1,18 @@
 @import "font";
-@import "list";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button {
+  cursor: pointer;
+
+  &:focus{
+    outline: none;
+  }
+}
+ul {
+  padding-inline-start: 0;
+}

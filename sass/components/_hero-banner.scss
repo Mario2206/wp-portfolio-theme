@@ -1,3 +1,23 @@
 .hero-banner {
 
+  @include horizontal-center;
+  justify-content: space-between;
+  height: $maxVh;
+
+  &--author {
+    @include horizontal-center;
+  }
+
+  &--meta-author {
+    font-weight: lighter;
+    margin-top: map-get($margins,2);
+  }
+
+  &--bottom-wrapper{
+    padding: map-get($margins,3);
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+  }
+
 }

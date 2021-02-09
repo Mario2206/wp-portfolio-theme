@@ -22,9 +22,36 @@ Normalizing styles have been helped along thanks to the fine work of
 Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 */
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;500&display=swap");
+.hero-banner {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	height: 100vh;
+}
+
+.hero-banner--author {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.hero-banner--meta-author {
+	font-weight: lighter;
+	margin-top: 15px;
+}
+
+.hero-banner--bottom-wrapper {
+	padding: 20px;
+	width: 100%;
+	display: flex;
+	justify-content: flex-start;
+}
+
 .main-navigation {
 	display: flex;
 	justify-content: center;
+	margin: 30px 0;
 }
 
 .main-navigation ul {
@@ -80,8 +107,125 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	transform: translateY(-150%);
 }
 
+@media screen and (max-width: 500px) {
+	.main-navigation ul li a {
+		font-size: .9em;
+	}
+}
+
+.circle-slider {
+	--item-size: 20vw;
+	display: flex;
+	align-items: center;
+}
+
+.circle-slider--wrapper {
+	list-style: none;
+	display: flex;
+	overflow: hidden;
+}
+
+.circle-slider--btn {
+	margin-left: 15px;
+	background: none;
+	border: none;
+	font-size: 1.3em;
+	font-weight: lighter;
+}
+
+.circle-slider--items, .circle-slider--items-start, .circle-slider--items-out {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--p_sec_back_color);
+	width: var(--item-size);
+	height: var(--item-size);
+	align-items: center;
+	color: var(--p_sec_font_color);
+	border-radius: 100%;
+	position: relative;
+}
+
+.circle-slider--items-start {
+	animation: rollIn 2s forwards;
+	right: 105%;
+}
+
+.circle-slider--items-start:nth-child(3n + 2) {
+	animation-delay: .3s;
+}
+
+.circle-slider--items-start:nth-child(3n + 1) {
+	animation-delay: .6s;
+}
+
+.circle-slider--items-hidden {
+	display: none;
+}
+
+.circle-slider--items-out {
+	top: 0;
+	animation: rollOut 1s forwards;
+}
+
+.circle-slider--items-out:nth-child(3n + 2) {
+	animation-delay: .3s;
+}
+
+.circle-slider--items-out:nth-child(3n + 1) {
+	animation-delay: .5s;
+}
+
+@media screen and (min-width: 1000px) {
+	.circle-slider {
+		--item-size: 10vw;
+	}
+}
+
+@media screen and (min-width: 1600px) {
+	.circle-slider {
+		--item-size: 7vw;
+	}
+}
+
+@keyframes rollIn {
+	from {
+		transform: rotateZ(0);
+		right: 105%;
+	}
+	to {
+		transform: rotateZ(1060deg);
+		right: 0;
+	}
+}
+
+@keyframes rollOut {
+	from {
+		transform: rotateZ(1060deg);
+		top: 0;
+	}
+	to {
+		transform: rotateZ(1000deg);
+		top: 20vw;
+	}
+}
+
 * {
 	font-family: Raleway;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+button {
+	cursor: pointer;
+}
+
+button:focus {
+	outline: none;
 }
 
 ul {

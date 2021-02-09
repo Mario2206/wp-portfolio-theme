@@ -1,0 +1,102 @@
+.circle-slider {
+  --item-size : 20vw;
+  display: flex;
+  align-items: center;
+
+  &--wrapper {
+    list-style: none;
+    display: flex;
+    overflow: hidden;
+  }
+
+  &--btn {
+    margin-left: map-get($margins, 2);
+    @include clear-btn;
+    font-size: 1.3em;
+    font-weight: lighter;
+  }
+
+  &--items {
+    @include flex-inline-center;
+
+    background-color: var(--p_sec_back_color);
+    width: var(--item-size);
+    height: var(--item-size);
+    align-items: center;
+    color: var(--p_sec_font_color);
+    border-radius: 100%;
+    position: relative;
+
+  }
+
+  &--items-start {
+    @extend .circle-slider--items;
+    animation: rollIn 2s forwards ;
+    right: 105%;
+
+    &:nth-child(3n + 2) {
+      animation-delay: .3s ;
+    }
+    &:nth-child(3n + 1) {
+      animation-delay: .6s ;
+    }
+  }
+
+  &--items-hidden {
+    display: none;
+  }
+
+  &--items-out {
+    @extend .circle-slider--items;
+    top: 0;
+    animation: rollOut 1s forwards;
+
+    &:nth-child(3n + 2) {
+      animation-delay: .3s ;
+    }
+    &:nth-child(3n + 1) {
+      animation-delay: .5s ;
+    }
+
+
+  }
+}
+
+//RESPONSIVE
+
+@media screen and (min-width: $tabletSize) {
+
+  .circle-slider {
+    --item-size : 10vw;
+  }
+}
+
+@media screen and (min-width: $desktopSize){
+  .circle-slider {
+   --item-size: 7vw;
+  }
+}
+
+//ANIMATIONS
+
+@keyframes rollIn {
+  from {
+    transform: rotateZ(0);
+    right: 105%;
+  }
+  to {
+    transform: rotateZ(1060deg);
+    right: 0;
+  }
+}
+
+@keyframes rollOut {
+  from {
+    transform: rotateZ(1060deg);
+    top: 0;
+  }
+  to {
+    transform: rotateZ(1000deg);
+    top: 20vw;
+  }
+}
