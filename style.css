@@ -28,6 +28,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	align-items: center;
 	justify-content: space-between;
 	height: 100vh;
+	position: relative;
 }
 
 .hero-banner--author {
@@ -36,16 +37,93 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	align-items: center;
 }
 
-.hero-banner--meta-author {
+.hero-banner--meta-author, .hero-banner--meta-author-large {
 	font-weight: lighter;
 	margin-top: 15px;
+}
+
+.hero-banner--meta-author-large {
+	display: none;
 }
 
 .hero-banner--bottom-wrapper {
 	padding: 20px;
 	width: 100%;
 	display: flex;
-	justify-content: flex-start;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.hero-banner--bottom-btn {
+	background: none;
+	border: none;
+	align-self: center;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%) translateY(30%);
+	display: none;
+}
+
+.hero-banner--decorator-top {
+	top: 20vh;
+	transform: rotateZ(180deg);
+	left: 10vw;
+	animation: infinityMoveTop 100s infinite linear;
+}
+
+.hero-banner--decorator-bottom {
+	bottom: 20vh;
+	right: 10vw;
+}
+
+@media screen and (min-width: 1600px) {
+	.hero-banner--bottom-btn {
+		display: inline-block;
+	}
+	.hero-banner--meta-author, .hero-banner--meta-author-large {
+		display: none;
+	}
+	.hero-banner--meta-author-large {
+		display: inline-block;
+	}
+}
+
+@keyframes infinityMoveTop {
+	0% {
+		top: 20vh;
+		transform: rotateZ(180deg);
+		left: 10vw;
+	}
+	16% {
+		top: 80vh;
+		transform: rotateZ(500deg);
+		left: 20vw;
+	}
+	32% {
+		top: 20vh;
+		transform: rotateZ(180deg);
+		left: 60vw;
+	}
+	48% {
+		bottom: 20vh;
+		right: 10vw;
+		transform: rotateZ(0);
+	}
+	64% {
+		bottom: 80vh;
+		right: 15vw;
+		transform: rotateZ(300deg);
+	}
+	80% {
+		bottom: 60vh;
+		right: 75vw;
+		transform: rotateZ(800deg);
+	}
+	100% {
+		top: 20vh;
+		transform: rotateZ(180deg);
+		left: 10vw;
+	}
 }
 
 .main-navigation {
@@ -137,6 +215,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	display: inline-flex;
 	justify-content: center;
 	align-items: center;
+	padding: 5px;
 	background-color: var(--p_sec_back_color);
 	width: var(--item-size);
 	height: var(--item-size);
@@ -207,6 +286,50 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	to {
 		transform: rotateZ(1000deg);
 		top: 20vw;
+	}
+}
+
+.circle-decorator {
+	position: absolute;
+	display: inline-flex;
+	width: 10vw;
+	height: 10vw;
+	justify-content: space-between;
+	z-index: -1;
+}
+
+.circle-decorator::before {
+	content: "";
+	display: inline-block;
+	background-color: var(--p_sec_back_color);
+	width: 70%;
+	height: 70%;
+	border-radius: 100%;
+	align-self: flex-start;
+}
+
+.circle-decorator::after {
+	content: "";
+	display: inline-block;
+	background-color: var(--p_sec_back_color);
+	width: 30%;
+	height: 30%;
+	border-radius: 100%;
+	transform: scale(1.2);
+	align-self: flex-end;
+}
+
+@media screen and (min-width: 1000px) {
+	.circle-decorator {
+		width: 5vw;
+		height: 5vw;
+	}
+}
+
+@media screen and (min-width: 1600px) {
+	.circle-decorator {
+		width: 3vw;
+		height: 3vw;
 	}
 }
 

@@ -14,11 +14,12 @@
     @include clear-btn;
     font-size: 1.3em;
     font-weight: lighter;
+
   }
 
   &--items {
     @include flex-inline-center;
-
+    padding: 5px;
     background-color: var(--p_sec_back_color);
     width: var(--item-size);
     height: var(--item-size);
