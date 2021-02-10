@@ -53,6 +53,13 @@
 			</div>
 			
 		</header>
+        <section class="author-section">
+            <h2 class="second-title">Un petit bout de mon histoire ...</h2>
+            <img class="author-section--portrait" src="<?= get_option("p_author_img") ?>" title="<?= get_option("p_author_firstname") . " " . get_option("p_author_lastname") ?>" alt="<?= get_option("p_author_firstname") . " " . get_option("p_author_lastname") . " portrait"?>" />
+            <p>
+                <?= get_option("p_author_desc") ?>
+            </p>
+        </section>
 
 
 

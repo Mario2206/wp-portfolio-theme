@@ -68,7 +68,6 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	top: 20vh;
 	transform: rotateZ(180deg);
 	left: 10vw;
-	animation: infinityMoveTop 100s infinite linear;
 }
 
 .hero-banner--decorator-bottom {
@@ -85,44 +84,6 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	}
 	.hero-banner--meta-author-large {
 		display: inline-block;
-	}
-}
-
-@keyframes infinityMoveTop {
-	0% {
-		top: 20vh;
-		transform: rotateZ(180deg);
-		left: 10vw;
-	}
-	16% {
-		top: 80vh;
-		transform: rotateZ(500deg);
-		left: 20vw;
-	}
-	32% {
-		top: 20vh;
-		transform: rotateZ(180deg);
-		left: 60vw;
-	}
-	48% {
-		bottom: 20vh;
-		right: 10vw;
-		transform: rotateZ(0);
-	}
-	64% {
-		bottom: 80vh;
-		right: 15vw;
-		transform: rotateZ(300deg);
-	}
-	80% {
-		bottom: 60vh;
-		right: 75vw;
-		transform: rotateZ(800deg);
-	}
-	100% {
-		top: 20vh;
-		transform: rotateZ(180deg);
-		left: 10vw;
 	}
 }
 
@@ -331,6 +292,28 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 		width: 3vw;
 		height: 3vw;
 	}
+}
+
+.author-section {
+	height: 100vh;
+	background-color: var(--p_sec_back_color);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.author-section * {
+	color: var(--p_sec_font_color);
+}
+
+.author-section--portrait {
+	width: 50%;
+	margin: 0 auto;
+	display: block;
+}
+
+.second-title {
+	font-weight: 300;
 }
 
 * {

@@ -1,0 +1,16 @@
+.author-section {
+  height: 100vh;
+  background-color: var(--p_sec_back_color);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  * {
+    color: var(--p_sec_font_color);
+  }
+
+  &--portrait {
+    width: 50%;
+    margin: 0 auto;
+    display: block;
+  }
+}
