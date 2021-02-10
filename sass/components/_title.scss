@@ -1,3 +1,16 @@
 .second-title {
-  font-weight: 300 ;
+  font-size: 1.7em;
+  font-weight: normal ;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  margin: map-get($margins, 3) auto;
+}
+
+@media screen and (min-width: $tabletSize){
+  .second-title  {
+    margin: map-get($margins, 5) auto;
+  }
 }

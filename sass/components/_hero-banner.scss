@@ -48,12 +48,17 @@
 
 }
 
-@media screen and (min-width: $desktopSize) {
+@media screen and (min-width: $tabletSize) {
   .hero-banner {
-
     &--bottom-btn {
       display: inline-block;
     }
+  }
+}
+
+@media screen and (min-width: $desktopSize) {
+  .hero-banner {
+
     &--meta-author {
       display: none;
       &-large {

@@ -11,8 +11,13 @@
 
 ?>
 
-	<footer id="colophon" class="site-footer">
-
+	<footer id="colophon" class="portfolio-footer">
+        <?php
+            wp_nav_menu([
+                    "menu"=> "footer-menu",
+                "menu_class" => "portfolio-footer--wrapper"
+            ])
+        ?>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 

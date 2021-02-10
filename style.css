@@ -75,10 +75,13 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	right: 10vw;
 }
 
-@media screen and (min-width: 1600px) {
+@media screen and (min-width: 1000px) {
 	.hero-banner--bottom-btn {
 		display: inline-block;
 	}
+}
+
+@media screen and (min-width: 1600px) {
 	.hero-banner--meta-author, .hero-banner--meta-author-large {
 		display: none;
 	}
@@ -295,11 +298,14 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 }
 
 .author-section {
-	height: 100vh;
+	position: relative;
+	min-height: 100vh;
 	background-color: var(--p_sec_back_color);
 	display: flex;
 	flex-direction: column;
-	justify-content: space-around;
+	justify-content: space-between;
+	overflow: hidden;
+	padding: 10vh 0;
 }
 
 .author-section * {
@@ -308,12 +314,174 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 
 .author-section--portrait {
 	width: 50%;
-	margin: 0 auto;
 	display: block;
+	margin: 20px auto;
+}
+
+.author-section--portrait > img {
+	width: 100%;
+	border: 2px solid var(--p_sec_font_color);
+	border-radius: 100%;
+}
+
+.author-section--portrait > svg {
+	display: none;
+}
+
+.author-section--txt {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 80%;
+	font-weight: lighter;
+	text-align: center;
+	line-height: 30px;
+	margin: 0 auto;
+}
+
+.author-section--bottom-decorator {
+	width: 40%;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	transform: translateY(40%);
+}
+
+.author-section--top-decorator {
+	display: none;
+}
+
+@media screen and (min-width: 1000px) {
+	.author-section {
+		justify-content: center;
+		padding: 10vh 10vw;
+	}
+	.author-section--txt {
+		font-size: 1.1em;
+		margin: 30px auto;
+	}
+	.author-section--portrait {
+		width: 15vw;
+		position: absolute;
+		top: 10vh;
+		left: 15vw;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	.author-section--portrait > svg {
+		display: block;
+		width: 30%;
+		transform: translateY(5%);
+	}
+	.author-section--top-decorator {
+		display: block;
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 35%;
+		transform: translateY(-40%);
+	}
+	.author-section--bottom-decorator {
+		width: 15vw;
+	}
+}
+
+@media screen and (min-width: 1600px) {
+	.author-section--portrait {
+		width: 10vw;
+	}
 }
 
 .second-title {
-	font-weight: 300;
+	font-size: 1.7em;
+	font-weight: normal;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 80%;
+	margin: 20px auto;
+}
+
+@media screen and (min-width: 1000px) {
+	.second-title {
+		margin: 30px auto;
+	}
+}
+
+.project-card {
+	position: relative;
+	margin: 15px 0;
+	width: 80vw;
+	height: 80vw;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.project-card-wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.project-card--bg {
+	background-color: var(--p_sec_back_color);
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.project-card--title {
+	color: var(--p_sec_font_color);
+	z-index: 10;
+}
+
+@media screen and (min-width: 1000px) {
+	.project-card {
+		width: 23vw;
+		height: 23vw;
+	}
+	.project-card-wrapper {
+		flex-direction: row;
+		justify-content: space-between;
+		flex-wrap: wrap;
+	}
+}
+
+.content-box {
+	padding: 0 2vw;
+}
+
+.content-box--head, .content-box--footer {
+	padding: 5vh 0;
+}
+
+.content-box--footer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@media screen and (min-width: 1600px) {
+	.content-box--head, .content-box--footer {
+		padding: 7vh 0;
+	}
+}
+
+.portfolio-footer {
+	padding: 25px 30px;
+	background-color: var(--p_sec_back_color);
+}
+
+.portfolio-footer--wrapper {
+	display: flex;
+	justify-content: space-between;
+}
+
+.portfolio-footer--wrapper a {
+	color: var(--p_sec_font_color);
 }
 
 * {
@@ -336,6 +504,12 @@ button:focus {
 
 ul {
 	padding-inline-start: 0;
+}
+
+@media screen and (max-width: 500px) {
+	p {
+		font-size: .8em;
+	}
 }
 
 /* Hide the Posts Navigation and the Footer when Infinite Scroll is in use. */

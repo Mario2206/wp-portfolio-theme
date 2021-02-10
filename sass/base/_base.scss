@@ -16,3 +16,9 @@ button {
 ul {
   padding-inline-start: 0;
 }
+
+@media screen and (max-width: $phoneSize) {
+  p {
+    font-size: .8em;
+  }
+}
