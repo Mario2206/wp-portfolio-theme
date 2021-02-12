@@ -1,12 +1,15 @@
 .circle-slider {
-  --item-size : 20vw;
   display: flex;
   align-items: center;
 
   &--wrapper {
-    list-style: none;
     display: flex;
     overflow: hidden;
+
+    &-center {
+      @extend .circle-slider--wrapper;
+      justify-content: space-around;
+    }
   }
 
   &--btn {
@@ -18,6 +21,7 @@
   }
 
   &--items {
+    --item-size : 20vw;
     @include flex-inline-center;
     padding: 5px;
     background-color: var(--p_sec_back_color);
@@ -67,14 +71,20 @@
 
 @media screen and (min-width: $tabletSize) {
 
-  .circle-slider {
+  .circle-slider--items {
     --item-size : 10vw;
   }
 }
 
 @media screen and (min-width: $desktopSize){
-  .circle-slider {
+  .circle-slider--items {
    --item-size: 7vw;
+  }
+  .circle-slider--wrapper-center {
+    justify-content: flex-start;
+    .circle-slider--items {
+      margin-right: map-get($margins, 1);
+    }
   }
 }
 

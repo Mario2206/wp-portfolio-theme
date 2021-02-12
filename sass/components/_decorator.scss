@@ -1,3 +1,24 @@
+.top-right-decorator {
+  top: 15vh;
+  right: 7vw;
+}
+
+.top-left-decorator {
+  top: 15vh;
+  left: 7vw;
+}
+.bottom-right-decorator {
+  bottom: 15vh;
+  right: 7vw;
+}
+
+.bottom-left-decorator {
+  bottom: 15vh;
+  left: 7vw;
+}
+
+
+
 .circle-decorator {
   position: absolute;
   display: inline-flex;
@@ -26,8 +47,30 @@
     align-self: flex-end;
   }
 
+  &-rotate-90 {
+    transform: rotateZ(90deg);
+  }
+
+  &-rotate-180 {
+    transform: rotateZ(180deg);
+  }
+
   z-index: -1;
 
+}
+.desktop-cat {
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  bottom: 2vh;
+  width: 30vw;
+  path {
+    stroke: var(--p_first_font_color);
+  }
+}
+
+.decorator-only-desktop {
+  display: none;
 }
 
 @media screen and (min-width: $tabletSize){
@@ -42,5 +85,10 @@
     width: 3vw;
     height: 3vw;
   }
+  .decorator-only-desktop {
+    display: inline-flex;
+  }
+
+
 }
 

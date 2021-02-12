@@ -12,8 +12,8 @@
 <div id="page" class="site">
 		<header class="hero-banner" id="header">
             <?php get_template_part('template-parts/nav') ?><!-- #site-navigation -->
-            <span class="circle-decorator hero-banner--decorator-top"></span>
-            <span class="circle-decorator hero-banner--decorator-bottom"></span>
+            <span class="circle-decorator top-left-decorator"></span>
+            <span class="circle-decorator bottom-right-decorator circle-decorator-rotate-180"></span>
             <div>
                 <h1 class="hero-banner--author">
                     <span>

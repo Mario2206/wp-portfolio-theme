@@ -1,4 +1,8 @@
+.base-title {
+  color: var(--p_first_font_color);
+}
 .second-title {
+  @extend .base-title;
   font-size: 1.7em;
   font-weight: normal ;
   text-align: center;
@@ -9,8 +13,21 @@
   margin: map-get($margins, 3) auto;
 }
 
+.grass-title {
+  @extend .base-title;
+  font-weight: bold;
+  text-align: center;
+  padding: map-get($margins, 3) 0;
+}
+
 @media screen and (min-width: $tabletSize){
   .second-title  {
     margin: map-get($margins, 5) auto;
+  }
+}
+
+@media screen and (min-width: $desktopSize){
+  .grass-title {
+    text-align: left;
   }
 }

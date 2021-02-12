@@ -1,4 +1,5 @@
 .portfolio-footer {
+  margin-top: map-get($margins,5);
   padding: map-get($margins, 4) map-get($margins, 5);
   background-color: var(--p_sec_back_color);
 
