@@ -27,11 +27,6 @@
   }
 
   &--bottom-btn {
-    @include clear-btn;
-    align-self: center;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%) translateY(30%);
     display: none;
   }
 

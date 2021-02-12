@@ -55,12 +55,6 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 }
 
 .hero-banner--bottom-btn {
-	background: none;
-	border: none;
-	align-self: center;
-	position: absolute;
-	left: 50%;
-	transform: translateX(-50%) translateY(30%);
 	display: none;
 }
 
@@ -492,6 +486,10 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	opacity: .3;
 }
 
+.project-card:hover .project-card--title {
+	transform: scale(1.5);
+}
+
 .project-card--thumbnail {
 	animation: scrollAnim 5s infinite alternate-reverse ease-in;
 }
@@ -507,6 +505,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 .project-card--title {
 	color: var(--p_sec_font_color);
 	z-index: 10;
+	transition: .5s;
 }
 
 .project-card--thumbnail {
@@ -557,6 +556,12 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+}
+
+.vertical-box {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 
 @media screen and (min-width: 1000px) {
@@ -650,10 +655,134 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	text-decoration: underline;
 }
 
-.contact-form {
+.form {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	width: 80%;
+	margin: 15px auto;
+}
+
+.form input, .form textarea {
+	width: 100%;
+}
+
+.form input:focus, .form textarea:focus {
+	outline: 1px solid var(--p_first_font_color);
+}
+
+.form--item {
+	padding: 10px 5px;
+	margin: 20px 0;
+}
+
+@media screen and (min-width: 1000px) {
+	.form {
+		width: 50%;
+	}
+}
+
+@media screen and (min-width: 1600px) {
+	.form {
+		width: 40%;
+	}
+}
+
+.submit-btn {
+	display: inline-flex;
+	align-items: center;
+	background: none;
+	border: 1px solid var(--p_first_font_color);
+	padding: 5px;
+	transition: .5s;
+}
+
+.submit-btn * {
+	margin: 0 5px;
+}
+
+.submit-btn:hover {
+	background-color: var(--p_sec_back_color);
+	color: var(--p_sec_font_color);
+}
+
+.submit-btn:hover rect {
+	fill: var(--p_first_back_color);
+}
+
+.arrow-btn {
+	background: none;
+	border: none;
+	align-self: center;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%) translateY(30%);
+	display: none;
+}
+
+.landing-banner {
+	position: absolute;
+	background-color: var(--p_sec_back_color);
+	width: 100vw;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	transition: transform 1s;
+}
+
+.landing-banner-out {
+	transform: translateY(-100%);
+}
+
+.landing-banner--content {
+	flex: 1;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.landing-banner--item {
+	color: var(--p_sec_font_color);
+	font-size: 2em;
+	font-weight: lighter;
+}
+
+.landing-banner--footer {
+	height: 20vh;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+.landing-banner--footer-btn {
+	font-size: 1.5em;
+	font-weight: lighter;
+	background: none;
+	border: none;
+	color: var(--p_sec_font_color);
+	animation: clickAnim 1.5s infinite alternate-reverse;
+}
+
+@keyframes clickAnim {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: .1;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	.landing-banner--content {
+		flex-direction: column;
+	}
+	.landing-banner--item {
+		font-size: 1.4em;
+	}
 }
 
 * {
@@ -664,6 +793,14 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+}
+
+html {
+	scrollbar-width: none;
+}
+
+body::-webkit-scrollbar {
+	display: none;
 }
 
 .site {

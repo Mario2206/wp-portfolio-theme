@@ -1,0 +1,30 @@
+.submit-btn {
+  display: inline-flex;
+  align-items: center;
+  background: none;
+  border: 1px solid var(--p_first_font_color);
+  padding: map-get($margins, 0);
+  transition: .5s;
+  * {
+    margin: 0 5px;
+  }
+
+  &:hover {
+    background-color: var(--p_sec_back_color);
+    color: var(--p_sec_font_color);
+
+    rect {
+      fill: var(--p_first_back_color);
+    }
+  }
+
+}
+
+.arrow-btn {
+  @include clear-btn;
+  align-self: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) translateY(30%);
+  display: none;
+}

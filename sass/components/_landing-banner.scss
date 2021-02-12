@@ -1,0 +1,66 @@
+.landing-banner {
+  position: absolute;
+  background-color: var(--p_sec_back_color);
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transition: transform 1s;
+
+  &-out {
+    transform: translateY(-100%);
+  }
+
+  &--content {
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+  }
+
+  &--item {
+    color: var(--p_sec_font_color);
+    font-size: 2em;
+    font-weight: lighter;
+  }
+
+  &--footer {
+    height: 20vh;
+    @include flex-top-center;
+
+    &-btn {
+      font-size: 1.5em;
+      font-weight: lighter;
+      @include clear-btn;
+      color: var(--p_sec_font_color);
+      animation: clickAnim 1.5s infinite alternate-reverse;
+    }
+  }
+
+}
+
+@keyframes clickAnim {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: .1;
+  }
+}
+
+
+@media screen and (max-width: $phoneSize){
+  .landing-banner {
+    &--content {
+      flex-direction: column;
+    }
+    &--item {
+      font-size: 1.4em;
+    }
+  }
+}

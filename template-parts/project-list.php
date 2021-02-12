@@ -1,6 +1,6 @@
 <section class="project-card-wrapper">
     <?php
-      $limit = isset($numberposts)  ? $numberposts : 8;
+      $limit = isset($args['numberposts'])  ? $args['numberposts'] : 8;
       $args = ["post_type" => 'portfolio', "fields" => "post_title", "numberposts" => $limit];
 
       $projects = new WP_Query($args);

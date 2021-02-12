@@ -144,6 +144,7 @@ function portfolio_black_white_scripts() {
 	wp_style_add_data( 'portfolio-black-white-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'portfolio-black-white-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'portfolio-black-white-landing-banner', get_template_directory_uri() . '/js/landing-banner.js', array(), _S_VERSION, true );
 	wp_enqueue_script('portfolio-black-white-circle-slider', get_template_directory_uri() . '/js/custom-elements/circle-slider.js');
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {

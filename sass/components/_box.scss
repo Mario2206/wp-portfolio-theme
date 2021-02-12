@@ -24,6 +24,10 @@
   @extend .box-center;
 }
 
+.vertical-box {
+  @include vertical-center;
+}
+
 
 @media screen and (min-width: $tabletSize ) {
   .content-box {
