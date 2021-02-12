@@ -8,10 +8,18 @@
 }
 
 .site {
+  position: relative;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  overflow: hidden;
+}
+
+.site-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 button {

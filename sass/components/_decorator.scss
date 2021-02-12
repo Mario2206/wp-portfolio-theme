@@ -62,8 +62,9 @@
   display: inline-block;
   position: absolute;
   right: 0;
-  bottom: 2vh;
+  bottom: -3%;
   width: 30vw;
+  z-index: -1;
   path {
     stroke: var(--p_first_font_color);
   }
@@ -78,15 +79,15 @@
     width: 5vw;
     height: 5vw;
   }
+  .decorator-only-desktop {
+    display: inline-flex;
+  }
 }
 
 @media screen and (min-width: $desktopSize){
   .circle-decorator {
     width: 3vw;
     height: 3vw;
-  }
-  .decorator-only-desktop {
-    display: inline-flex;
   }
 
 

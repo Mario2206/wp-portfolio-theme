@@ -24,9 +24,7 @@
   .second-title  {
     margin: map-get($margins, 5) auto;
   }
-}
 
-@media screen and (min-width: $desktopSize){
   .grass-title {
     text-align: left;
   }

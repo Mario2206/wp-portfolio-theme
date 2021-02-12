@@ -68,10 +68,10 @@
     }
 
     &--portrait {
-      width: 15vw;
+      width: 10vw;
       position: absolute;
-      top: 10vh;
-      left: 15vw;
+      top: 3vh;
+      left: 5vw;
       @include horizontal-center;
 
       & > svg {
@@ -101,6 +101,8 @@
   .author-section {
     &--portrait {
       width: 10vw;
+      top: 10vh;
+      left: 15vw;
     }
   }
 }

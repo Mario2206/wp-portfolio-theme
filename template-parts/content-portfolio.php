@@ -1,14 +1,14 @@
-<article class="portfolio content-box horizontal-box">
+<article class="portfolio-content">
 
-    <header class="portfolio-head">
+    <div class="portfolio-content--head">
         <div>
             <?php the_post_thumbnail('post-thumbnail', ["class" => "main-miniature"]) ?>
         </div>
-    </header>
-    <div>
-        <div class="content-box--section">
+    </div>
+    <div class="portfolio-content--content-wrapper">
+        <div class="portfolio-content--section">
             <h1 class="grass-title"><?= the_title() ?></h1>
-            <div class="portfolio-content" >
+            <div class="" >
                 <?= the_content()  ?>
             </div>
         </div>
@@ -18,14 +18,14 @@
 
         if($taxonomies) :
             ?>
-            <div class="content-box--section">
+            <div class="portfolio-content--section">
                 <h2 class="grass-title">Technologies du projet</h2>
                 <ul class="circle-slider--wrapper-center">
                     <?php
 
                     foreach ($taxonomies as $taxo) :
                         ?>
-                        <li class="circle-slider--items"><?= $taxo->name ?></li>
+                        <li class="circle-slider--items portfolio-content--items"><?= $taxo->name ?></li>
                     <?php
                     endforeach;
                     ?>
@@ -38,7 +38,7 @@
 
         if($projectLink):
             ?>
-            <div class="content-box--section portfolio-content">
+            <div class="portfolio-content--section">
                 <h2 class="grass-title">Lien du projet</h2>
                 <a href="<?= $projectLink ?>" class="common-link"><?= $projectLink ?></a>
             </div>

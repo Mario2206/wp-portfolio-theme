@@ -213,19 +213,19 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 
 @media screen and (min-width: 1000px) {
 	.circle-slider--items, .circle-slider--items-start, .circle-slider--items-out {
-		--item-size: 10vw;
-	}
-}
-
-@media screen and (min-width: 1600px) {
-	.circle-slider--items, .circle-slider--items-start, .circle-slider--items-out {
-		--item-size: 7vw;
+		--item-size: 8vw;
 	}
 	.circle-slider--wrapper-center {
 		justify-content: flex-start;
 	}
 	.circle-slider--wrapper-center .circle-slider--items, .circle-slider--wrapper-center .circle-slider--items-start, .circle-slider--wrapper-center .circle-slider--items-out {
 		margin-right: 10px;
+	}
+}
+
+@media screen and (min-width: 1600px) {
+	.circle-slider--items, .circle-slider--items-start, .circle-slider--items-out {
+		--item-size: 7vw;
 	}
 }
 
@@ -313,8 +313,9 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	display: inline-block;
 	position: absolute;
 	right: 0;
-	bottom: 2vh;
+	bottom: -3%;
 	width: 30vw;
+	z-index: -1;
 }
 
 .desktop-cat path {
@@ -330,15 +331,15 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 		width: 5vw;
 		height: 5vw;
 	}
+	.decorator-only-desktop {
+		display: inline-flex;
+	}
 }
 
 @media screen and (min-width: 1600px) {
 	.circle-decorator {
 		width: 3vw;
 		height: 3vw;
-	}
-	.decorator-only-desktop {
-		display: inline-flex;
 	}
 }
 
@@ -406,10 +407,10 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 		margin: 30px auto;
 	}
 	.author-section--portrait {
-		width: 15vw;
+		width: 10vw;
 		position: absolute;
-		top: 10vh;
-		left: 15vw;
+		top: 3vh;
+		left: 5vw;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -435,6 +436,8 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 @media screen and (min-width: 1600px) {
 	.author-section--portrait {
 		width: 10vw;
+		top: 10vh;
+		left: 15vw;
 	}
 }
 
@@ -463,9 +466,6 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	.second-title {
 		margin: 30px auto;
 	}
-}
-
-@media screen and (min-width: 1600px) {
 	.grass-title {
 		text-align: left;
 	}
@@ -559,13 +559,13 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	align-items: center;
 }
 
-@media screen and (min-width: 1600px) {
+@media screen and (min-width: 1000px) {
 	.content-box--head, .content-box--footer {
 		padding: 7vh 0;
 	}
 	.horizontal-box {
-		align-items: flex-start;
 		flex-direction: row;
+		align-items: center;
 	}
 	.horizontal-box > * {
 		flex-basis: 30%;
@@ -604,14 +604,41 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	align-items: center;
 }
 
+.portfolio-content--head {
+	width: 80%;
+}
+
+.portfolio-content--head img {
+	width: 100%;
+}
+
+.portfolio-content--section {
+	padding-bottom: 25px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.portfolio-content--items {
+	margin: 0 10px;
+}
+
 .portfolio-content p {
 	text-align: center;
 }
 
-@media screen and (min-width: 1600px) {
+@media screen and (min-width: 1000px) {
 	.portfolio-content {
-		width: 100%;
-		align-items: flex-start;
+		flex: 1;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-around;
+	}
+	.portfolio-content--head {
+		width: 30%;
+	}
+	.portfolio-content--content-wrapper {
+		width: 50%;
 	}
 	.portfolio-content p {
 		text-align: left;
@@ -640,10 +667,18 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 }
 
 .site {
+	position: relative;
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	overflow: hidden;
+}
+
+.site-main {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
 }
 
 button {

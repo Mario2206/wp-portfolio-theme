@@ -72,19 +72,19 @@
 @media screen and (min-width: $tabletSize) {
 
   .circle-slider--items {
-    --item-size : 10vw;
-  }
-}
-
-@media screen and (min-width: $desktopSize){
-  .circle-slider--items {
-   --item-size: 7vw;
+    --item-size : 8vw;
   }
   .circle-slider--wrapper-center {
     justify-content: flex-start;
     .circle-slider--items {
       margin-right: map-get($margins, 1);
     }
+  }
+}
+
+@media screen and (min-width: $desktopSize){
+  .circle-slider--items {
+   --item-size: 7vw;
   }
 }
 
