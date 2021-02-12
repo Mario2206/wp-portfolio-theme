@@ -1,0 +1,15 @@
+.portfolio-footer {
+  margin-top: map-get($margins,5);
+  padding: map-get($margins, 4) map-get($margins, 5);
+  background-color: var(--p_sec_back_color);
+
+  &--wrapper {
+    display: flex;
+    justify-content: space-between;
+
+    a {
+      color: var(--p_sec_font_color);
+    }
+
+  }
+}

@@ -1,0 +1,7 @@
+.main-miniature {
+  border: 2px solid var(--p_sec_back_color);
+  display: block;
+  width: 80%;
+  height: auto;
+  margin: map-get($margins, 2) auto;
+}

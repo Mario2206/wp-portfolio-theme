@@ -1,3 +1,62 @@
 .hero-banner {
 
+  @include horizontal-center;
+  justify-content: space-between;
+  height: $maxVh;
+  position: relative;
+
+  &--author {
+    @include horizontal-center;
+  }
+
+  &--meta-author {
+    font-weight: lighter;
+    margin-top: map-get($margins,2);
+    &-large {
+      @extend .hero-banner--meta-author;
+      display: none;
+    }
+  }
+
+  &--bottom-wrapper{
+    padding: map-get($margins,3);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &--bottom-btn {
+    @include clear-btn;
+    align-self: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) translateY(30%);
+    display: none;
+  }
+
+
 }
+
+@media screen and (min-width: $tabletSize) {
+  .hero-banner {
+    &--bottom-btn {
+      display: inline-block;
+    }
+  }
+}
+
+@media screen and (min-width: $desktopSize) {
+  .hero-banner {
+
+    &--meta-author {
+      display: none;
+      &-large {
+        display: inline-block;
+      }
+    }
+
+
+  }
+}
+

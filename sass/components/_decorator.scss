@@ -1,0 +1,94 @@
+.top-right-decorator {
+  top: 15vh;
+  right: 7vw;
+}
+
+.top-left-decorator {
+  top: 15vh;
+  left: 7vw;
+}
+.bottom-right-decorator {
+  bottom: 15vh;
+  right: 7vw;
+}
+
+.bottom-left-decorator {
+  bottom: 15vh;
+  left: 7vw;
+}
+
+
+
+.circle-decorator {
+  position: absolute;
+  display: inline-flex;
+  width: 10vw;
+  height: 10vw;
+  justify-content: space-between;
+
+  &::before {
+    content: "";
+    display: inline-block;
+    background-color: var(--p_sec_back_color);
+    width: 70%;
+    height: 70%;
+    border-radius: 100%;
+    align-self: flex-start;
+  }
+
+  &::after {
+    content: "";
+    display: inline-block;
+    background-color: var(--p_sec_back_color);
+    width: 30%;
+    height: 30%;
+    border-radius: 100%;
+    transform: scale(1.2);
+    align-self: flex-end;
+  }
+
+  &-rotate-90 {
+    transform: rotateZ(90deg);
+  }
+
+  &-rotate-180 {
+    transform: rotateZ(180deg);
+  }
+
+  z-index: -1;
+
+}
+.desktop-cat {
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  bottom: 2vh;
+  width: 30vw;
+  path {
+    stroke: var(--p_first_font_color);
+  }
+}
+
+.decorator-only-desktop {
+  display: none;
+}
+
+@media screen and (min-width: $tabletSize){
+  .circle-decorator {
+    width: 5vw;
+    height: 5vw;
+  }
+}
+
+@media screen and (min-width: $desktopSize){
+  .circle-decorator {
+    width: 3vw;
+    height: 3vw;
+  }
+  .decorator-only-desktop {
+    display: inline-flex;
+  }
+
+
+}
+

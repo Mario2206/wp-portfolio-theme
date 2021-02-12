@@ -5,7 +5,24 @@
 	margin-right: auto;
 }
 
+@mixin flex-inline-center {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@mixin horizontal-center {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
 // Column width with margin
 @mixin column-width($numberColumns: 3) {
 	width: map-get($columns, $numberColumns) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );
+}
+
+@mixin clear-btn {
+	background: none;
+	border: none;
 }

@@ -1,0 +1,113 @@
+.circle-slider {
+  display: flex;
+  align-items: center;
+
+  &--wrapper {
+    display: flex;
+    overflow: hidden;
+
+    &-center {
+      @extend .circle-slider--wrapper;
+      justify-content: space-around;
+    }
+  }
+
+  &--btn {
+    margin-left: map-get($margins, 2);
+    @include clear-btn;
+    font-size: 1.3em;
+    font-weight: lighter;
+
+  }
+
+  &--items {
+    --item-size : 20vw;
+    @include flex-inline-center;
+    padding: 5px;
+    background-color: var(--p_sec_back_color);
+    width: var(--item-size);
+    height: var(--item-size);
+    align-items: center;
+    color: var(--p_sec_font_color);
+    border-radius: 100%;
+    position: relative;
+
+  }
+
+  &--items-start {
+    @extend .circle-slider--items;
+    animation: rollIn 2s forwards ;
+    right: 105%;
+
+    &:nth-child(3n + 2) {
+      animation-delay: .3s ;
+    }
+    &:nth-child(3n + 1) {
+      animation-delay: .6s ;
+    }
+  }
+
+  &--items-hidden {
+    display: none;
+  }
+
+  &--items-out {
+    @extend .circle-slider--items;
+    top: 0;
+    animation: rollOut 1s forwards;
+
+    &:nth-child(3n + 2) {
+      animation-delay: .3s ;
+    }
+    &:nth-child(3n + 1) {
+      animation-delay: .5s ;
+    }
+
+
+  }
+}
+
+//RESPONSIVE
+
+@media screen and (min-width: $tabletSize) {
+
+  .circle-slider--items {
+    --item-size : 10vw;
+  }
+}
+
+@media screen and (min-width: $desktopSize){
+  .circle-slider--items {
+   --item-size: 7vw;
+  }
+  .circle-slider--wrapper-center {
+    justify-content: flex-start;
+    .circle-slider--items {
+      margin-right: map-get($margins, 1);
+    }
+  }
+}
+
+//ANIMATIONS
+
+@keyframes rollIn {
+  from {
+    transform: rotateZ(0);
+    right: 105%;
+  }
+  to {
+    transform: rotateZ(1060deg);
+    right: 0;
+  }
+}
+
+@keyframes rollOut {
+  from {
+    transform: rotateZ(1060deg);
+    top: 0;
+  }
+  to {
+    transform: rotateZ(1000deg);
+    top: 20vw;
+  }
+}
