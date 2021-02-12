@@ -13,7 +13,8 @@
       flex-direction: column;
 
       &:hover {
-        a:after {
+        a::after {
+
           transform: scaleX(1);
         }
         .main-navigation--icon {

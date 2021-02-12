@@ -38,7 +38,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	flex-direction: column;
 }
 
-.main-navigation ul li:hover a:after {
+.main-navigation ul li:hover a::after {
 	transform: scaleX(1);
 }
 
