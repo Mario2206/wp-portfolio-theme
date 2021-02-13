@@ -44,7 +44,10 @@
           transition: transform .5s ease-in-out;
         }
 
+      }
 
+      rect {
+        fill: var(--p_first_font_color);
       }
     }
 

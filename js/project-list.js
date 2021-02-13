@@ -1,3 +1,4 @@
+//Obbserver for action on scroll
 function projectObserver() {
 	const target = document.querySelector( '.project-card--wrapper' );
 	if ( ! target ) {
@@ -13,7 +14,6 @@ function projectObserver() {
 
 	const options = {
 		threshold: .2,
-		// root: document.querySelector( '.project-card--wrapper' ),
 		rootMargin: '0px',
 	};
 

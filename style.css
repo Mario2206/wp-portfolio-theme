@@ -23,6 +23,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 */
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;500&display=swap");
 .hero-banner {
+	background-color: var(--p_first_back_color);
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -35,11 +36,13 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	color: var(--p_first_font_color);
 }
 
 .hero-banner--meta-author, .hero-banner--meta-author-large {
 	font-weight: lighter;
 	margin-top: 15px;
+	color: var(--p_first_font_color);
 }
 
 .hero-banner--meta-author-large {
@@ -119,6 +122,10 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	transition: transform .5s ease-in-out;
 }
 
+.main-navigation ul li rect {
+	fill: var(--p_first_font_color);
+}
+
 .main-navigation--icon-wrapper {
 	display: flex;
 	justify-content: center;
@@ -158,6 +165,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	border: none;
 	font-size: 1.3em;
 	font-weight: lighter;
+	color: var(--p_first_font_color);
 }
 
 .circle-slider--items {
@@ -274,26 +282,29 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	width: 10vw;
 	height: 10vw;
 	justify-content: space-between;
-	z-index: -1;
+	z-index: 0;
 }
 
-.circle-decorator::before {
+.circle-decorator-light::before, .circle-decorator-light::after {
+	background-color: var(--p_first_back_color) !important;
+}
+
+.circle-decorator::before, .circle-decorator:after {
 	content: "";
 	display: inline-block;
 	background-color: var(--p_sec_back_color);
+	border-radius: 100%;
+}
+
+.circle-decorator::before {
 	width: 70%;
 	height: 70%;
-	border-radius: 100%;
 	align-self: flex-start;
 }
 
 .circle-decorator::after {
-	content: "";
-	display: inline-block;
-	background-color: var(--p_sec_back_color);
 	width: 30%;
 	height: 30%;
-	border-radius: 100%;
 	transform: scale(1.2);
 	align-self: flex-end;
 }
@@ -321,6 +332,10 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 
 .decorator-only-desktop {
 	display: none;
+}
+
+.cat-decorator path {
+	stroke: var(--p_sec_font_color);
 }
 
 @media screen and (min-width: 1000px) {
@@ -593,7 +608,13 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	align-items: center;
 }
 
-.box-center, .horizontal-box {
+.box-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.horizontal-box {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -665,6 +686,10 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	align-items: center;
 }
 
+.portfolio-content--editable-wrapper * {
+	color: var(--p_first_font_color);
+}
+
 .portfolio-content--items {
 	margin: 0 10px;
 }
@@ -706,6 +731,14 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 
 .form input, .form textarea {
 	width: 100%;
+	background-color: var(--p_first_back_color);
+	color: var(--p_first_font_color);
+	border: 2px solid var(--p_first_font_color);
+}
+
+.form input::placeholder, .form textarea::placeholder {
+	color: var(--p_first_font_color);
+	font-weight: lighter;
 }
 
 .form input:focus, .form textarea:focus {
@@ -735,11 +768,16 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	background: none;
 	border: 1px solid var(--p_first_font_color);
 	padding: 5px;
+	color: var(--p_first_font_color);
 	transition: .5s;
 }
 
 .submit-btn * {
 	margin: 0 5px;
+}
+
+.submit-btn rect {
+	fill: var(--p_first_font_color);
 }
 
 .submit-btn:hover {
@@ -758,7 +796,16 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	position: absolute;
 	left: 50%;
 	transform: translateX(-50%) translateY(30%);
-	display: none;
+}
+
+.arrow-btn path {
+	fill: var(--p_first_font_color);
+}
+
+@media screen and (min-width: 1000px) {
+	.arrow-btn {
+		display: block;
+	}
 }
 
 .landing-banner {
@@ -775,8 +822,15 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	transition: transform 1s;
 }
 
-.landing-banner-out {
-	transform: translateY(-100%);
+.landing-banner--fade-out {
+	position: absolute;
+	width: 100%;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	z-index: 20;
+	animation: appear 2s forwards;
+	background-color: var(--p_first_back_color);
 }
 
 .landing-banner--content {
@@ -784,13 +838,17 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
+	flex-wrap: wrap;
+	padding: 0 30px;
 }
 
 .landing-banner--item {
 	color: var(--p_sec_font_color);
 	font-size: 2em;
 	font-weight: lighter;
-	animation: smoothArriving 7s infinite;
+	animation: smoothArriving 15s infinite;
+	opacity: 0;
+	width: 30%;
 }
 
 .landing-banner--footer {
@@ -821,15 +879,28 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 @keyframes smoothArriving {
 	0% {
 		opacity: 0;
-		transform: scale(0);
+		clip-path: circle(0);
 	}
 	70% {
 		opacity: 1;
-		transform: scale(1);
+		clip-path: circle(100%);
 	}
 	100% {
 		opacity: 0;
-		transform: scale(1.4);
+		clip-path: circle(0%);
+	}
+}
+
+@keyframes appear {
+	0% {
+		clip-path: circle(0);
+	}
+	50% {
+		clip-path: circle(100%);
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
 	}
 }
 
@@ -839,6 +910,24 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	}
 	.landing-banner--item {
 		font-size: 1.4em;
+	}
+}
+
+.no-phone {
+	display: none;
+}
+
+.base-bg {
+	background-color: var(--p_first_back_color);
+}
+
+.base-color {
+	color: var(--p_first_font_color);
+}
+
+@media screen and (min-width: 1000px) {
+	.no-phone {
+		display: initial;
 	}
 }
 

@@ -1,5 +1,5 @@
 .hero-banner {
-
+  background-color: var(--p_first_back_color);
   @include horizontal-center;
   justify-content: space-between;
   height: $maxVh;
@@ -7,11 +7,13 @@
 
   &--author {
     @include horizontal-center;
+    color: var(--p_first_font_color);
   }
 
   &--meta-author {
     font-weight: lighter;
     margin-top: map-get($margins,2);
+    color: var(--p_first_font_color);
     &-large {
       @extend .hero-banner--meta-author;
       display: none;

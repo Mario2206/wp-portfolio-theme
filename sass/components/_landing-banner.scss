@@ -11,8 +11,12 @@
   justify-content: flex-end;
   transition: transform 1s;
 
-  &-out {
-    transform: translateY(-100%);
+
+  &--fade-out {
+    @include cover-screen;
+    z-index: 20;
+    animation: appear 2s forwards;
+    background-color: var(--p_first_back_color);
   }
 
   &--content {
@@ -20,14 +24,17 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-
+    flex-wrap: wrap;
+    padding: 0 map-get($margins, 5);
   }
 
   &--item {
     color: var(--p_sec_font_color);
     font-size: 2em;
     font-weight: lighter;
-    animation: smoothArriving 7s infinite;
+    animation: smoothArriving 15s infinite;
+    opacity: 0;
+    width: 30%;
   }
 
   &--footer {
@@ -57,15 +64,28 @@
 @keyframes smoothArriving {
   0% {
     opacity: 0;
-    transform: scale(0);
+    clip-path: circle(0);
   }
   70% {
     opacity: 1;
-    transform: scale(1);
+    clip-path: circle(100%);
   }
   100% {
     opacity: 0;
-    transform: scale(1.4);
+    clip-path: circle(0%);
+  }
+}
+
+@keyframes appear {
+  0% {
+    clip-path: circle(0);
+  }
+  50% {
+    clip-path: circle(100%);
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
 

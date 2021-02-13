@@ -17,11 +17,10 @@
 }
 
 .box-center {
-  @include horizontal-center;
+  @include flex-center;
 }
-
 .horizontal-box {
-  @extend .box-center;
+  @include horizontal-center;
 }
 
 .vertical-box {

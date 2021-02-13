@@ -15,6 +15,13 @@
   &--section {
     padding-bottom: map-get($margins, 4);
     @include horizontal-center;
+
+  }
+
+  &--editable-wrapper {
+    * {
+      color: var(--p_first_font_color);
+    }
   }
 
   &--items {

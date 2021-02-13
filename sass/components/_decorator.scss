@@ -18,7 +18,6 @@
 }
 
 
-
 .circle-decorator {
   position: absolute;
   display: inline-flex;
@@ -26,23 +25,28 @@
   height: 10vw;
   justify-content: space-between;
 
-  &::before {
+  &-light {
+    &::before, &::after {
+      background-color: var(--p_first_back_color)!important;
+    }
+  }
+
+  &::before, &:after {
     content: "";
     display: inline-block;
     background-color: var(--p_sec_back_color);
+    border-radius: 100%;
+  }
+
+  &::before {
     width: 70%;
     height: 70%;
-    border-radius: 100%;
     align-self: flex-start;
   }
 
   &::after {
-    content: "";
-    display: inline-block;
-    background-color: var(--p_sec_back_color);
     width: 30%;
     height: 30%;
-    border-radius: 100%;
     transform: scale(1.2);
     align-self: flex-end;
   }
@@ -55,7 +59,7 @@
     transform: rotateZ(180deg);
   }
 
-  z-index: -1;
+  z-index:0;
 
 }
 .desktop-cat {
@@ -72,6 +76,12 @@
 
 .decorator-only-desktop {
   display: none;
+}
+
+.cat-decorator {
+  path {
+    stroke: var(--p_sec_font_color);
+  }
 }
 
 @media screen and (min-width: $tabletSize){

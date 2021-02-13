@@ -1,0 +1,17 @@
+.no-phone {
+  display: none;
+}
+
+.base-bg {
+  background-color: var(--p_first_back_color);
+}
+
+.base-color {
+  color: var(--p_first_font_color);
+}
+
+@media screen and (min-width: $tabletSize) {
+  .no-phone {
+    display: initial;
+  }
+}

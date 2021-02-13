@@ -8,7 +8,7 @@
     <div class="portfolio-content--content-wrapper">
         <div class="portfolio-content--section">
             <h1 class="grass-title"><?= the_title() ?></h1>
-            <div class="" >
+            <div class="portfolio-content--editable-wrapper" >
                 <?= the_content()  ?>
             </div>
         </div>

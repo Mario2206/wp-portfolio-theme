@@ -4,9 +4,15 @@
   background: none;
   border: 1px solid var(--p_first_font_color);
   padding: map-get($margins, 0);
+  color: var(--p_first_font_color);
+
   transition: .5s;
   * {
     margin: 0 5px;
+  }
+
+  rect {
+    fill: var(--p_first_font_color);
   }
 
   &:hover {
@@ -26,5 +32,15 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%) translateY(30%);
-  display: none;
+
+
+  path {
+    fill: var(--p_first_font_color);
+  }
+}
+
+@media screen and (min-width : $tabletSize) {
+  .arrow-btn {
+    display: block;
+  }
 }

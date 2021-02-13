@@ -5,7 +5,14 @@
 
   input, textarea {
     width: 100%;
+    background-color: var(--p_first_back_color);
+    color: var(--p_first_font_color);
+    border: 2px solid var(--p_first_font_color);
 
+    &::placeholder {
+      color: var(--p_first_font_color);
+      font-weight: lighter;
+    }
     &:focus {
       outline: 1px solid var(--p_first_font_color);
     }
