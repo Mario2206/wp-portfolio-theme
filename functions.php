@@ -144,9 +144,11 @@ function portfolio_black_white_scripts() {
 	wp_style_add_data( 'portfolio-black-white-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'portfolio-black-white-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
-	wp_enqueue_script('portfolio-black-white-circle-slider', get_template_directory_uri() . '/js/custom-elements/circle-slider.js');
+	wp_enqueue_script('portfolio-black-white-circle-slider', get_template_directory_uri() . '/js/custom-elements/circle-slider.js', array(), _S_VERSION, true );
+	wp_enqueue_script('portfolio-black-white-project-list', get_template_directory_uri() . '/js/project-list.js', array(), _S_VERSION, true );
 
-	if(is_home()) {
+
+	if(is_home() && !isset($_COOKIE['portfolio_visit'])) {
         wp_enqueue_script( 'portfolio-black-white-landing-banner', get_template_directory_uri() . '/js/landing-banner.js', array(), _S_VERSION, true );
     }
 
@@ -157,6 +159,19 @@ function portfolio_black_white_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'portfolio_black_white_scripts' );
 
+/**
+ * Set cookie
+ * */
+function portfolio_black_white_cookies() {
+    $visit_time = date('F j, Y g:i:a');
+
+    if(!isset($_COOKIE['portfolio_visit'])) {
+        setcookie('portfolio_visit', $visit_time, time() + 3600 );
+    }
+}
+
+
+add_action('init', 'portfolio_black_white_cookies');
 
 
 /**

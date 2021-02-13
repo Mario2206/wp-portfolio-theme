@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
 
+
   &--wrapper {
     display: flex;
     overflow: hidden;
@@ -22,6 +23,7 @@
 
   &--items {
     --item-size : 20vw;
+    color: var(--p_sec_font_color);
     @include flex-inline-center;
     padding: 5px;
     background-color: var(--p_sec_back_color);
@@ -35,7 +37,7 @@
   }
 
   &--items-start {
-    @extend .circle-slider--items;
+    position: relative;
     animation: rollIn 2s forwards ;
     right: 105%;
 
@@ -52,9 +54,9 @@
   }
 
   &--items-out {
-    @extend .circle-slider--items;
     top: 0;
     animation: rollOut 1s forwards;
+    position: relative;
 
     &:nth-child(3n + 2) {
       animation-delay: .3s ;

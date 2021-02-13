@@ -160,8 +160,9 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	font-weight: lighter;
 }
 
-.circle-slider--items, .circle-slider--items-start, .circle-slider--items-out {
+.circle-slider--items {
 	--item-size: 20vw;
+	color: var(--p_sec_font_color);
 	display: inline-flex;
 	justify-content: center;
 	align-items: center;
@@ -176,6 +177,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 }
 
 .circle-slider--items-start {
+	position: relative;
 	animation: rollIn 2s forwards;
 	right: 105%;
 }
@@ -195,6 +197,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 .circle-slider--items-out {
 	top: 0;
 	animation: rollOut 1s forwards;
+	position: relative;
 }
 
 .circle-slider--items-out:nth-child(3n + 2) {
@@ -206,19 +209,19 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 }
 
 @media screen and (min-width: 1000px) {
-	.circle-slider--items, .circle-slider--items-start, .circle-slider--items-out {
+	.circle-slider--items {
 		--item-size: 8vw;
 	}
 	.circle-slider--wrapper-center {
 		justify-content: flex-start;
 	}
-	.circle-slider--wrapper-center .circle-slider--items, .circle-slider--wrapper-center .circle-slider--items-start, .circle-slider--wrapper-center .circle-slider--items-out {
+	.circle-slider--wrapper-center .circle-slider--items {
 		margin-right: 10px;
 	}
 }
 
 @media screen and (min-width: 1600px) {
-	.circle-slider--items, .circle-slider--items-start, .circle-slider--items-out {
+	.circle-slider--items {
 		--item-size: 7vw;
 	}
 }
@@ -476,10 +479,19 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	overflow: hidden;
 }
 
-.project-card-wrapper {
+.project-card--wrapper {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+}
+
+.project-card--wrapper-anim .project-card {
+	opacity: 0;
+	transform: translateY(-100%);
+}
+
+.project-card--wrapper-anim-active .project-card {
+	animation: smoothSlideIn .8s forwards;
 }
 
 .project-card:hover .project-card--bg {
@@ -518,10 +530,17 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 		width: 23vw;
 		height: 23vw;
 	}
-	.project-card-wrapper {
+	.project-card--wrapper {
 		flex-direction: row;
 		justify-content: space-between;
 		flex-wrap: wrap;
+	}
+	.project-card--wrapper-anim .project-card {
+		opacity: 0;
+		transform: translateY(-100%);
+	}
+	.project-card--wrapper-anim-active .project-card {
+		animation: smoothFall .8s ease-out forwards;
 	}
 }
 
@@ -531,6 +550,28 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	}
 	to {
 		transform: translateY(15%);
+	}
+}
+
+@keyframes smoothSlideIn {
+	from {
+		opacity: 0;
+		transform: translateX(-100%);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes smoothFall {
+	from {
+		opacity: 0;
+		transform: translateY(-100%);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
 	}
 }
 
@@ -749,6 +790,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	color: var(--p_sec_font_color);
 	font-size: 2em;
 	font-weight: lighter;
+	animation: smoothArriving 7s infinite;
 }
 
 .landing-banner--footer {
@@ -773,6 +815,21 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	}
 	to {
 		opacity: .1;
+	}
+}
+
+@keyframes smoothArriving {
+	0% {
+		opacity: 0;
+		transform: scale(0);
+	}
+	70% {
+		opacity: 1;
+		transform: scale(1);
+	}
+	100% {
+		opacity: 0;
+		transform: scale(1.4);
 	}
 }
 
@@ -828,6 +885,7 @@ button:focus {
 
 ul {
 	padding-inline-start: 0;
+	list-style: none;
 }
 
 a {

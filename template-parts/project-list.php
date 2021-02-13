@@ -1,16 +1,15 @@
-<section class="project-card-wrapper">
+<section class="project-card--wrapper project-card--wrapper-anim">
     <?php
-      $limit = isset($args['numberposts'])  ? $args['numberposts'] : 8;
-      $args = ["post_type" => 'portfolio', "fields" => "post_title", "numberposts" => $limit];
 
-      $projects = new WP_Query($args);
 
-      if ($projects->have_posts()) :
-        while ($projects->have_posts()) :
-            $projects->the_post();
+      if ($args['query']->have_posts()) :
+          $count = 0;
+        while ($args['query']->have_posts()) :
+            $count++;
+            $args['query']->the_post();
     ?>
         <a href="<?= get_permalink() ?>">
-            <article class="project-card">
+            <article class="project-card " style="animation-delay: <?= $count * 0.1?>s">
                <?php the_post_thumbnail("post-thumbnail", ["class" => "project-card--thumbnail"]) ?>
                 <div class="project-card--bg"></div>
                 <h3 class="project-card--title"><?= the_title() ?></h3>

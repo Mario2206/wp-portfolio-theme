@@ -12,8 +12,15 @@
 <div id="page" class="site">
 
 		<header class="hero-banner" id="header">
-            <?php get_template_part('template-parts/nav') ?><!-- #site-navigation -->
-            <?php get_template_part('template-parts/landing-banner', null, ["words" => ['Passionné', "Prêt à apprendre", 'Perfectionniste']]) ?>
+
+            <!--     Navigation       -->
+            <?php get_template_part('template-parts/nav') ?>
+
+            <!--    Landing banner        -->
+            <?php if(!isset($_COOKIE['portfolio_visit'])) : ?>
+                <?php get_template_part('template-parts/landing-banner', null, ["words" => ['Passionné', "Prêt à apprendre", 'Perfectionniste']]) ?>
+            <?php endif ?>
+
             <span class="circle-decorator top-left-decorator"></span>
             <span class="circle-decorator bottom-right-decorator circle-decorator-rotate-180"></span>
             <div>
@@ -29,16 +36,20 @@
                     <?= esc_html( get_option('p_author_job') ) ?>
                 </h2>
             </div>
-
 			<div class="hero-banner--bottom-wrapper">
 				<div class="circle-slider">
 					<ul is="circle-slider" class="circle-slider--wrapper" id="slider-skills">
                         <?php
-                            $skills = get_option('p_author_skills');
-                            $skills = $skills ? json_decode($skills) : [];
-                            foreach ($skills as $skill) {
-                                echo "<li class='circle-slider--items-start'>" .esc_html( $skill ) . "</li>";
-                            }
+                            $skills = get_terms('technology');
+                            foreach ($skills as $skill) :
+
+                        ?>
+                                <li class='circle-slider--items-start'>
+                                    <a class='circle-slider--items' href='/technology/<?= $skill->slug ?>' > <?= esc_html( $skill->name ) ?> </a>
+                                </li>
+
+                        <?php
+                        endforeach;
                         ?>
 
 					</ul>
@@ -74,28 +85,8 @@
                 <path d="M518.557 334.684C514.33 332.441 506.77 332.672 506.227 333.686C505.402 335.228 509.344 340.991 514.524 342.111C518.32 342.932 525.198 340.435 525.198 340.435C525.198 340.435 521.587 336.293 518.557 334.684Z" fill="white" fill-opacity="0.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M478.301 316.454C476.779 315.618 471.999 315.732 471.999 315.732C471.999 315.732 473.947 319.276 475.839 320.443C478.832 322.29 482.694 322.056 482.694 322.056C482.694 322.056 479.955 317.363 478.301 316.454Z" fill="black" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 <path id="eye1" d="M474.206 312.825L469.877 311.806C469.877 311.806 471.284 319.438 476.391 321.335C479.695 322.562 484.526 322.868 485.113 321.484C485.407 320.791 485.145 317.465 482.333 315.499C479.595 313.585 476.045 313.258 474.206 312.825Z" fill="white" fill-opacity="0.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <animate
-                    attributeName="d"
-                    dur="3s"
-                    begin="0s"
-                    repeatCount="indefinite"
-                    values="
-                        M474.206 312.825L469.877 311.806C469.877 311.806 471.284 319.438 476.391 321.335C479.695 322.562 484.526 322.868 485.113 321.484C485.407 320.791 485.145 317.465 482.333 315.499C479.595 313.585 476.045 313.258 474.206 312.825Z;
-                        M474.225 312.746L469.896 311.727C469.896 311.727 472.652 313.626 477.888 314.977C481.275 315.851 485.952 316.81 486.258 316.621C486.411 316.527 485.546 315.764 482.493 314.822C479.52 313.905 476.064 313.179 474.225 312.746Z
-                    "
-                    />
                 </path>
                 <path d="M483.648 345.506C483.817 344.784 477.857 341.797 476.563 342.034C475.268 342.271 476.072 344.097 479.075 345.356C482.077 346.615 483.388 346.609 483.648 345.506Z" fill="white" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <animate
-                            attributeName="d"
-                            dur="3s"
-                            begin="0s"
-                            repeatCount="indefinite"
-                            values="
-                        M483.648 345.506C483.817 344.784 477.857 341.797 476.563 342.034C475.268 342.271 476.072 344.097 479.075 345.356C482.077 346.615 483.388 346.609 483.648 345.506ZZ;
-                        0
-                    "
-                    />
                 </path>
             </svg>
             <!--            REVIEW           -->
@@ -114,7 +105,13 @@
                 <h2 class="second-title">Mon portfolio</h2>
             </header>
             <!--     project list       -->
-            <?php get_template_part("template-parts/project-list", null, ['numberposts' => 12]) ?>
+            <?php
+            $limit = 12;
+            $args = ["post_type" => 'portfolio', "fields" => "post_title", "numberposts" => $limit];
+
+            $projects = new WP_Query($args);
+            ?>
+            <?php get_template_part("template-parts/project-list", null, ['query' => $projects]) ?>
             <footer class="content-box--footer">
                 <a href="#header">
                     <svg width="29" height="39" viewBox="0 0 29 39" fill="none" xmlns="http://www.w3.org/2000/svg">
